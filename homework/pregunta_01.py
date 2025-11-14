@@ -2,8 +2,10 @@
 Escriba el codigo que ejecute la accion solicitada en la pregunta.
 """
 
-import pandas as pd
+import os
 from datetime import datetime
+
+import pandas as pd
 
 
 def pregunta_01():
@@ -66,6 +68,9 @@ def pregunta_01():
 
     # Eliminar filas duplicadas
     df = df.drop_duplicates()
+
+    # Crear files/output directory si no existe
+    os.makedirs("files/output", exist_ok=True)
 
     # Guardar el resultado
     df.to_csv("files/output/solicitudes_de_credito.csv", sep=";", index=False)
